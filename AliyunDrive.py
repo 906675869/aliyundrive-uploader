@@ -238,6 +238,8 @@ class AliyunDrive:
 
         if 'file_id' in requests_post_json:
             self.print('【{filename}】上传成功！消耗{s}秒'.format(filename=self.filename, s=self.spend_time), 'success')
+            os.remove(self.realpath)
+            self.print('【{filename}】本地删除成功'.format(filename=self.filename), 'success')
             return True
         else:
             self.print('【{filename}】上传失败！消耗{s}秒'.format(filename=self.filename, s=self.spend_time), 'warn')
